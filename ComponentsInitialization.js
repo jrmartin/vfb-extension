@@ -21,12 +21,9 @@ define(function (require) {
         //Tutorial component initialization
         GEPPETTO.ComponentFactory.addWidget('TUTORIAL', {
             name: 'VFB Tutorial',
-            tutorialData: vfbTutorial},undefined, function() {
-                //temporary until sessions allow to customise the tutorial component
-                GEPPETTO.Tutorial.addTutorial("https://dl.dropboxusercontent.com/u/7538688/practicals/1_hh/hh_intro.json?dl=1")
-                GEPPETTO.Tutorial.addTutorial("https://dl.dropboxusercontent.com/u/7538688/practicals/1_hh_neuroml/hh_neuroml.json?dl=1")
-                GEPPETTO.Tutorial.addTutorial("https://dl.dropboxusercontent.com/u/7538688/practicals/1_hh_practical/hh_practical.json?dl=1")
-         });
+            tutorialData: vfbTutorial,
+            foregroundControls : false
+        });
         
         //Control panel initialization
         GEPPETTO.ComponentFactory.addComponent('CONTROLPANEL', {enableInfiniteScroll: true}, document.getElementById("controlpanel"), function () {
@@ -1177,6 +1174,14 @@ define(function (require) {
                                 "icon": "fa fa-object-ungroup",
                                 "label": "",
                                 "tooltip": "Toggle wireframe"
+                            },
+                            "tutorialBtn": {
+                            	"actions": [
+                            		'GEPPETTO.Console.executeImplicitCommand("G.toggleTutorial()");'
+                            	],
+                                "icon": "fa fa-leanpub",
+                                "label": "",
+                                "tooltip": "Toggle tutorial"
                             }
                         }
                     }
