@@ -11,14 +11,25 @@ define(function (require) {
         var Query = require('./../../js/geppettoModel/model/Query');
         var ImportType = require('./../../js/geppettoModel/model/ImportType');
         var Bloodhound = require("typeahead.js/dist/bloodhound.min.js");
-
+        var vfbTutorial = require('./vfbTutorial.json');
+        
         /*ADD COMPONENTS*/
         
         //Logo initialization
         GEPPETTO.ComponentFactory.addComponent('LOGO', {logo: 'gpt-fly'}, document.getElementById("geppettologo"));
 
+        //Tutorial component initialization
+        GEPPETTO.ComponentFactory.addWidget('TUTORIAL', {
+            name: 'VFB Tutorial',
+            tutorialData: vfbTutorial},undefined, function() {
+                //temporary until sessions allow to customise the tutorial component
+                GEPPETTO.Tutorial.addTutorial("https://dl.dropboxusercontent.com/u/7538688/practicals/1_hh/hh_intro.json?dl=1")
+                GEPPETTO.Tutorial.addTutorial("https://dl.dropboxusercontent.com/u/7538688/practicals/1_hh_neuroml/hh_neuroml.json?dl=1")
+                GEPPETTO.Tutorial.addTutorial("https://dl.dropboxusercontent.com/u/7538688/practicals/1_hh_practical/hh_practical.json?dl=1")
+         });
+        
         //Control panel initialization
-        GEPPETTO.ComponentFactory.addComponent('CONTROLPANEL', {}, document.getElementById("controlpanel"), function () {
+        GEPPETTO.ComponentFactory.addComponent('CONTROLPANEL', {enableInfiniteScroll: true}, document.getElementById("controlpanel"), function () {
             // CONTROLPANEL configuration
             // set column meta - which custom controls to use, source configuration for data, custom actions
             var controlPanelColMeta = [
@@ -329,7 +340,7 @@ define(function (require) {
         GEPPETTO.ComponentFactory.addComponent('FOREGROUND', {}, document.getElementById("foreground-toolbar"));
         
         //Query control initialization
-        GEPPETTO.ComponentFactory.addComponent('QUERY', {enablePagination:true, resultsPerPage:Math.ceil((window.innerHeight * 0.7)/250)}, document.getElementById("querybuilder"), function () {
+        GEPPETTO.ComponentFactory.addComponent('QUERY', {enableInfiniteScroll: true}, document.getElementById("querybuilder"), function () {
             // QUERY configuration
             var queryResultsColMeta = [
                 {
