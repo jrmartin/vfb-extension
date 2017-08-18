@@ -3,9 +3,9 @@
 	"height": "300",
     "width": "400",
 	"steps": [{
-		"icon" : "gpt-osb",
+		"icon" : "gpt-fly",
 		"title": " Guided tour",
-		"message": "<strong>Welcome to Open Source Brain!</strong> This is a <strong>tutorial</strong> to help you understand what you can do with OSB.",
+		"message": "<strong>Welcome to Virtual Fly Brain!</strong> This is a <strong>tutorial</strong> to help you understand what you can do with VFB.",
 		"action": ""
 	}, {
 		"title": " Control Panel",
