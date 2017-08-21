@@ -11,7 +11,7 @@ define(function (require) {
         var Query = require('./../../js/geppettoModel/model/Query');
         var ImportType = require('./../../js/geppettoModel/model/ImportType');
         var Bloodhound = require("typeahead.js/dist/bloodhound.min.js");
-        var vfbTutorial = require('./vfbTutorial.json');
+        var vfbTutorial = require('./tutorials/vfbTutorial.json');
         
         var markdown = require( "markdown" ).markdown;
 
@@ -45,6 +45,12 @@ define(function (require) {
             name: 'VFB Tutorial',
             tutorialData: vfbTutorial,
             foregroundControls : false
+        }, undefined, function() {
+            //temporary until sessions allow to customise the tutorial component
+            GEPPETTO.Tutorial.addTutorial("https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/tutorials/queryTutorial.json");
+            GEPPETTO.Tutorial.addTutorial("https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/tutorials/spotlightTutorial.json");
+            GEPPETTO.Tutorial.addTutorial("https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/tutorials/termTutorial.json");
+            GEPPETTO.Tutorial.addTutorial("https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/tutorials/stackTutorial.json");
         });
         
         //Control panel initialization
