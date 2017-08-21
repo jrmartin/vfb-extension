@@ -32,8 +32,8 @@ define(function (require) {
         }
         
         //retrieve MD files text output and stores it into local variables
-        var termHelpInfo = getMDText(stackMD);
-        var stackHelpInfo = getMDText(termMD);
+        var termHelpInfo = getMDText(termMD);
+        var stackHelpInfo = getMDText(stackMD);
         
         /*ADD COMPONENTS*/
         
