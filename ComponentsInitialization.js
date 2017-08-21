@@ -13,6 +13,28 @@ define(function (require) {
         var Bloodhound = require("typeahead.js/dist/bloodhound.min.js");
         var vfbTutorial = require('./vfbTutorial.json');
         
+        var markdown = require( "markdown" ).markdown;
+
+        var stackMD = "https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/mdHelpFiles/stack.md";
+        var termMD = "https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/mdHelpFiles/term.md";
+        
+        //Retrieve 
+        function getMDText(urlLocation){
+            var result = null;
+            $.ajax( { url: urlLocation, 
+                      type: 'get', 
+                      dataType: 'html',
+                      async: false,
+                      success: function(data) { result = data; } 
+                    }
+            );
+            return result;
+        }
+        
+        //retrieve MD files text output and stores it into local variables
+        var termHelpInfo = getMDText(stackMD);
+        var stackHelpInfo = getMDText(termMD);
+        
         /*ADD COMPONENTS*/
         
         //Logo initialization
@@ -841,6 +863,7 @@ define(function (require) {
                     window.StackViewer1.setName('Slice Viewer');
                     window.StackViewer1.setTrasparentBackground(true);
                     window.StackViewer1.showHistoryIcon(false);
+                    window.StackViewer1.setHelpInfo(stackHelpInfo);
 
                    window.StackViewer1.$el.bind('restored', function(event,id) {
                         if(id == window.StackViewer1.getId()){
@@ -1124,6 +1147,7 @@ define(function (require) {
                     window.termInfoPopup.setButtonBarControls({"VisualCapability": ['select', 'color', 'visibility_obj', 'visibility_swc', 'zoom', 'delete']});
                     window.termInfoPopup.setButtonBarConfiguration(buttonBarConfiguration);
                     window.termInfoPopup.setSize(getTermInfoDefaultHeight(), getTermInfoDefaultWidth());
+                    window.termInfoPopup.setHelpInfo(termHelpInfo);
                 } else {
                 	window.vfbWindowResize();
                     $('#' + window.termInfoPopupId).parent().effect('shake', {distance:5, times: 3}, 500);
