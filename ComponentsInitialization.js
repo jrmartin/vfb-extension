@@ -44,7 +44,9 @@ define(function (require) {
         GEPPETTO.ComponentFactory.addWidget('TUTORIAL', {
             name: 'VFB Tutorial',
             tutorialData: vfbTutorial,
-            foregroundControls : false
+            foregroundControls : false,
+            isStateless: true,
+            closeByDefault : true
         }, function() {
             //temporary until sessions allow to customise the tutorial component
             GEPPETTO.Tutorial.addTutorial("https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/tutorials/queryTutorial.json");
