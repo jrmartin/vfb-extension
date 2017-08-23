@@ -15,8 +15,8 @@ define(function (require) {
         
         var markdown = require( "markdown" ).markdown;
 
-        var stackMD = "https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/mdHelpFiles/stack.md";
-        var termMD = "https://raw.githubusercontent.com/jrmartin/vfb-extension/vfb-8/17/mdHelpFiles/term.md";
+        var stackMD = window.origin+"/extensions/geppetto-vfb/mdHelpFiles/stack.md";
+        var termMD = window.origin+"/extensions/geppetto-vfb/mdHelpFiles/term.md";
         
         //Retrieve 
         function getMDText(urlLocation){
