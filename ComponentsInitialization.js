@@ -44,7 +44,6 @@ define(function (require) {
         GEPPETTO.ComponentFactory.addWidget('TUTORIAL', {
             name: 'VFB Tutorial',
             tutorialData: vfbTutorial,
-            foregroundControls : false,
             isStateless: true,
             closeByDefault : true
         }, function() {
@@ -364,7 +363,7 @@ define(function (require) {
         });
 
         //Foreground initialization
-        GEPPETTO.ComponentFactory.addComponent('FOREGROUND', {}, document.getElementById("foreground-toolbar"));
+        GEPPETTO.ComponentFactory.addComponent('FOREGROUND', {addToForegroundControls : false}, document.getElementById("foreground-toolbar"));
         
         //Query control initialization
         GEPPETTO.ComponentFactory.addComponent('QUERY', {enableInfiniteScroll: true}, document.getElementById("querybuilder"), function () {
